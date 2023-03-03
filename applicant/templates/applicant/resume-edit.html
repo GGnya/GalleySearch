@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <ul>
+                {{ form.as_p }}
+            </ul>
+            <div class="col text-center">
+                <div>
+                    <button formmethod="post" type="submit">Сохранить изменения</button>
+                </div>
+                <div>
+                    <a href="{% url "applicant:delete-resume" pk=resume.pk%}" rel="nofollow">Удалить резюме</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

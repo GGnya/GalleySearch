@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="centered">
+            <ul class="list-group">
+                <li class="list-group-item">{{ profile.email }}</li>
+                <li class="list-group-item">{{ extra_profile.get_company_name }}</li>
+                <li class="list-group-item">{{ extra_profile.get_some_info }}</li>
+            </ul>
+            {% if user.is_authenticated %}
+                {% if user.pk == profile.pk %}
+                    <div class="col text-center">
+                        <a href='{% url 'account:profile-edit' %}'>Изменить</a>
+                    </div>
+                 {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

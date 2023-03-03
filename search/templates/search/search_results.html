@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'search:search' %}" method="get">
+        <div>
+            <div class="col text-center">
+                <input name="q" type="text" placeholder="Search..." class="text-center">
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="col text-center">
+                        <select name="resume_vacancy">
+                            <option value="resume">Резюме</option>
+                            <option value="vacancy" selected="selected">Вакансии</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="col text-center">
+                        <input name="city" type="text" placeholder="City">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="col text-center">
+                        <input name="salary_to" type="text" placeholder="Salary to">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col text-center">
+                <button type="submit" class="btn btn-primary mb-2 mt-2" style="min-width: 145px; min-height: 37px;">Искать</button>
+            </div>
+        <div class="text-center" style="margin-top: 20px">
+            <ul class="list-group">
+                {% for object in object_list %}
+                    <li class="list-group-item" style="margin-top: 5px">
+                        <a href="{{ object.get_absolute_url }}">{{ object.position }}</a>
+                            <div>{{ object.salary_to }}</div>
+                        <div>{{ object.city }}</div>
+                    </li >
+                {% endfor %}
+            </ul>
+        </div>
+    </form>
+</div>
+{% endblock %}

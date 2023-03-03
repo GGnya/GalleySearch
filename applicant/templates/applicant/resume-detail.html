@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" style="max-width:800px">
+        <div class="centered">
+            <ul class="list-group">
+              <li class="list-group-item">{{ resume.position }}</li>
+              <li class="list-group-item">{{ resume.first_name }}</li>
+              <li class="list-group-item">{{ resume.last_name }}</li>
+              <li class="list-group-item">{{ resume.birthday }}</li>
+              <li class="list-group-item">{{ resume.get_gender_display }}</li>
+              <li class="list-group-item">{{ resume.city }}</li>
+              <li class="list-group-item">{{ resume.email }}</li>
+              <li class="list-group-item">{{ resume.pretty_money }}</li>
+              <li class="list-group-item">{{ resume.is_published }}</li>
+            </ul>
+            <div class="col text-center">
+                <a href='{% url 'applicant:edit-resume' pk=resume.pk %}'>Изменить</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

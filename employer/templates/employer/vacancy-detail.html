@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="max-width:800px">
+    <div class="centered">
+        <ul class="list-group">
+          <li class="list-group-item">{{ vacancy.position }}</li>
+          <li class="list-group-item">{{ vacancy.experience }}</li>
+          <li class="list-group-item">{{ vacancy.city }}</li>
+          <li class="list-group-item">{{ vacancy.employment_type }}</li>
+          <li class="list-group-item">{{ vacancy.pretty_money }}</li>
+          <li class="list-group-item">{{ vacancy.is_published }}</li>
+          <li class="list-group-item">{{ vacancy.employer.employerprofile.company_name }}</li>
+        </ul>
+        <div class="col text-center">
+        <a href='{% url 'employer:vacancy-edit' pk=vacancy.pk %}'>Изменить</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

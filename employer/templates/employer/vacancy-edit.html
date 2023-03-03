@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            {{ form.as_p }}
+        </ul>
+        <div class="col text-center">
+            <button formmethod="post" type="submit">Сохранить изменения</button>
+
+            <a href="{% url "employer:vacancy-delete" pk=vacancy.pk %}" rel="nofollow">Удалить вакансию</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

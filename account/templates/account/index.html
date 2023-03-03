@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="col text-center">
+            <div>
+            <a href="{% url 'account:login' %}">Login</a>
+            </div>
+            <div>
+            <a href="{% url 'account:applicant-register' %}">Register as applicant</a>
+            </div>
+            <div>
+                <a href="{% url 'account:employer-register' %}">Register as employer</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

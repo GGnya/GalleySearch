@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for vacancy in vacancies %}
+        <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{% url 'employer:vacancy-detail' pk=vacancy.pk %}">{{ vacancy.position }}</a>
+            </li>
+            <li class="list-group-item">{{ vacancy }}</li>
+            <li class="list-group-item">{{ vacancy.pretty_money }}</li>
+            <li class="list-group-item">{{ vacancy.employer.employerprofile.company_name }}</li>
+        </ul>
+        </div>
+        <hr/>
+    {% endfor %}
+{% endblock %}

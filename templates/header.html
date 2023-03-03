@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<header class="p-3 mb-3 border-bottom">
+   <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+         <div>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="{% url 'account:main-page' %}"><img width="40" src={% static "images/gs_logo.png" %} alt="logo"/></a></li>
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.role == 'APPLICANT' %}
+                                <li><a href="{% url 'employer:vacancies' %}" class="nav-link px-2 link-secondary">Vacancies</a></li>
+                                <li><a href="{% url 'applicant:create-resume' %}" class="nav-link px-2 link-dark">Create resume</a></li>
+                                <li><a href="{% url 'applicant:my-resumes' %}" class="nav-link px-2 link-dark">My resumes</a></li>
+                            {% elif request.user.role == 'EMPLOYER' %}
+                                <li><a href="{% url 'applicant:resumes' %}" class="nav-link px-2 link-secondary">Resumes</a></li>
+                                <li><a href="{% url 'employer:vacancy-create' %}" class="nav-link px-2 link-dark">Vacancy create</a></li>
+                                <li><a href="{% url 'employer:my-vacancies' %}" class="nav-link px-2 link-dark">My vacancies</a></li>
+                            {% endif %}
+                                <li><a href="{% url 'account:self-profile' %}" class="nav-link px-2 link-dark">Profile</a></li>
+                                <li><a href="{% url 'search:search' %}" class="nav-link px-2 link-dark">Search</a> </li>
+                                <li><a href="{% url 'account:logout' %}" class="nav-link px-2 link-dark">Log out</a> </li>
+                        {% endif %}
+            </ul>
+         </div>
+      </div>
+   </div>
+</header>

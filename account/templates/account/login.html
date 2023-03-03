@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="col text-center">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-primary  mb-4">Войти</button>
+    <div>
+        <div>
+            Don't have account?
+        </div>
+        <div>
+            <a href="{% url 'account:applicant-register' %}">Register as applicant now!</a>
+        </div>
+        <div>
+            <a href="{% url 'account:employer-register' %}">Register as employer now!</a>
+        </div>
+    </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

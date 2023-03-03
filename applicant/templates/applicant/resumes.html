@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for resume in resumes %}
+        <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{% url 'applicant:resume-detail' pk=resume.pk %}">{{ resume.position }}</a>
+            </li>
+            <li class="list-group-item">{{ resume }}</li>
+            <li class="list-group-item">{{ resume.pretty_money }}</li>
+        </ul>
+        </div>
+        <hr/>
+    {% endfor %}
+{% endblock %}

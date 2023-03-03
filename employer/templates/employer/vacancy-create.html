@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="col text-center">
+            <button type="submit" class="btn btn-primary  mb-4">Создать вакансию</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

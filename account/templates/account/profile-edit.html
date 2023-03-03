@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <form method="post">
+            <div class="col text-center">
+                {% csrf_token %}
+                    <ul>
+                        {{ form.as_p }}
+                    </ul>
+                    <ul>
+                        {{ form2.as_p }}
+                    </ul>
+                <div>
+                    <button class="btn btn-primary mb-4" type="submit">Сохранить изменения</button>
+                    <button class="btn btn-primary mb-4" type="reset">Сбросить изменения</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
